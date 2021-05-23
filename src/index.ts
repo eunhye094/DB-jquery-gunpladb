@@ -10,6 +10,8 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'))
 
+app.use('/gunpladb', router)
+
 app.listen('3000', () => {
 	console.log('Server Started')
 })

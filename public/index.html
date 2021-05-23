@@ -3,10 +3,38 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>jQuery</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>	
 	<body>
 		<h3>
 			jQuery를 사용한 데이터베이스 예제 프로그래밍
 		</h3>
+		<div>
+			<ul id="result">
+				<li>아무 것도 없음</li>
+			</ul>
+		</div>
+		<script>
+			$(document).ready(() => {
+				$("h3").click(()=> {
+					$.ajax({
+						url: "/gunpladb/mechanic/",
+						dataType: "json",
+						success: (json) => {
+							// alert("success")
+							// alert(json.length)
+							$("#result").empty()
+							$.each(json, (index, item) => {
+								let li = '<li>' + item.name + '</li>'
+								$("#result").append(li)
+							})
+						},
+						error: (req, status, err) => {
+							alert(err)
+						}
+					})
+				})
+			})
+		</script>
 	</body>
 </html>

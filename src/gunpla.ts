@@ -12,7 +12,6 @@ const dbc = mysql.createConnection({
 
 dbc.connect();
 	
-
 router.get('/mechanic', (req: Request, res: Response) => {
 	const query: string = 'select * from mechanic'
 	dbc.query(query, (err, rows) => {
