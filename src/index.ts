@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use('/gunpladb', router)
+app.use(express.static('public'))
 
 app.listen('3000', () => {
 	console.log('Server Started')
